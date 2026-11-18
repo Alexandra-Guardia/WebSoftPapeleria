@@ -1,0 +1,30 @@
+.boton-accion {
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton-accion--turquesa { 
+    background: var(--turquesa); 
+}
+
+.boton-accion--verde { 
+    background: var(--verde-btn); 
+}
+
+.boton-accion--naranja {
+    background: var(--naranja); 
+}
+.boton-accion--azul { 
+    background: var(--azul); 
+    color: #fff;
+}
+
+
+
+.boton-accion:hover {
+  opacity: 0.85;
+}

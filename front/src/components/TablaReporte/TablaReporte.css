@@ -1,0 +1,26 @@
+.tabla-reporte {
+  border-collapse: collapse;
+  width: 88%;
+  margin: 20px auto 0;
+}
+
+.tabla-reporte th,
+.tabla-reporte td {
+  border: 1px solid var(--borde);
+  background: var(--gris);
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 13px;
+}
+
+.tabla-reporte th {
+  font-weight: bold;
+}
+
+.tabla-reporte__eliminar {
+  background: none;
+  border: none;
+  color: var(--borde);
+  font-size: 16px;
+  cursor: pointer;
+}
