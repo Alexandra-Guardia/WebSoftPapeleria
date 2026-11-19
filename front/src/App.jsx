@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import MenuLateral from "./components/MenuLateral";
 import GestionUsuarios from "./views/GestionUsuarios/GestionUsuarios";
+import ReporteVentas from "./views/ReporteVentas/ReporteVentas";
+import RegistroVentas from "./views/RegistroVentas/RegistroVentas";
+import GestionProductos from "./views/GestionProductos/GestionProductos";
 import "./App.css";
 
 export default function App() {
@@ -11,6 +14,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/usuarios" />} />
           <Route path="/usuarios" element={<GestionUsuarios />} />
+          <Route path="/" element={<Navigate to="/reportes" />} />
+          <Route path="/reportes" element={<ReporteVentas />} />
+          <Route path="/" element={<Navigate to="/ventas" />} />
+          <Route path="/ventas" element={<RegistroVentas />} />
+          <Route path="/" element={<Navigate to="/productos" />} />
+          <Route path="/productos" element={<GestionProductos />} />
         </Routes>
       </main>
     </div>
