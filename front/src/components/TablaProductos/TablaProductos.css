@@ -1,0 +1,25 @@
+.tabla-productos {
+  border-collapse: collapse;
+  margin: 25px auto 0;
+  width: 90%;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  border: 2px solid var(--borde);
+  background: var(--gris);
+  text-align: center;
+  padding: 20px 15px;
+  font-size: 13px;
+}
+
+.tabla-productos th {
+  padding: 15px;
+  font-weight: bold;
+}
+
+.tabla-productos__acciones {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}

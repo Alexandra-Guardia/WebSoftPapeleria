@@ -1,0 +1,14 @@
+.barra-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gris);
+  padding: 16px;
+}
+
+.barra-busqueda__input {
+  flex: 1;
+  border: none;
+  padding: 11px 12px;
+  font-size: 13px;
+}
