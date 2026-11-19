@@ -1,0 +1,26 @@
+.tabla-venta {
+  border-collapse: collapse;
+  width: 88%;
+  margin: 10px auto 0;
+}
+
+.tabla-venta th,
+.tabla-venta td {
+  border: 1px solid var(--borde);
+  background: var(--gris);
+  text-align: center;
+  padding: 16px 10px;
+  font-size: 13px;
+}
+
+.tabla-venta th {
+  font-weight: bold;
+}
+
+.tabla-venta__eliminar {
+  background: none;
+  border: none;
+  color: var(--borde);
+  font-size: 16px;
+  cursor: pointer;
+}
