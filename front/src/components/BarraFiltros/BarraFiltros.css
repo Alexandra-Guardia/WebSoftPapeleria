@@ -1,0 +1,20 @@
+.barra-filtros {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--gris);
+  padding: 16px;
+}
+
+.barra-filtros__etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.barra-filtros__fecha {
+  border: none;
+  padding: 8px 10px;
+  font-size: 12px;
+}
