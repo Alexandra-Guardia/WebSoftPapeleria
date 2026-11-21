@@ -1,0 +1,12 @@
+.ventas__subtitulo {
+  margin: 25px 0 10px 0;
+  font-size: 16px;
+  color: var(--titulo);
+}
+
+.ventas__acciones {
+  display: flex;
+  gap: 20px;
+  width: 88%;
+  margin: 20px auto 0;
+}

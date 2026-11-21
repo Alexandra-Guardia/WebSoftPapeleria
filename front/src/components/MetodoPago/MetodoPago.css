@@ -1,0 +1,18 @@
+.metodo-pago {
+  width: 88%;
+  margin: 20px auto 0;
+}
+
+.metodo-pago__titulo {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: var(--titulo);
+}
+
+.metodo-pago__opcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
