@@ -28,6 +28,10 @@
   color: var(--borde);
   font-size: 16px;
   cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: background 0.15s, color 0.15s;
 }
 
 .tabla-reporte td {
@@ -37,4 +41,9 @@
 
 .tabla-reporte tr:hover td {
   background: #f6efdc;
+}
+
+.tabla-reporte__eliminar:hover {
+  background: #fbe3dc;
+  color: #a63d22;
 }
