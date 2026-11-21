@@ -2,6 +2,7 @@
   border-collapse: collapse;
   width: 88%;
   margin: 10px auto 0;
+  box-shadow: var(--sombra);
 }
 
 .tabla-venta th,
@@ -15,6 +16,10 @@
 
 .tabla-venta th {
   font-weight: bold;
+  background: var(--verde);
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-size: 12px;
 }
 
 .tabla-venta__eliminar {
@@ -23,4 +28,13 @@
   color: var(--borde);
   font-size: 16px;
   cursor: pointer;
+}
+
+.tabla-venta td {
+  background: #fff;
+  border-color: #e2dccb;
+}
+
+.tabla-venta tr:hover td {
+  background: #f6efdc;
 }

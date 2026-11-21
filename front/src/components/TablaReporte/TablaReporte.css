@@ -2,6 +2,7 @@
   border-collapse: collapse;
   width: 88%;
   margin: 20px auto 0;
+  box-shadow: var(--sombra);
 }
 
 .tabla-reporte th,
@@ -15,6 +16,10 @@
 
 .tabla-reporte th {
   font-weight: bold;
+  background: var(--verde);
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-size: 12px;
 }
 
 .tabla-reporte__eliminar {
@@ -23,4 +28,13 @@
   color: var(--borde);
   font-size: 16px;
   cursor: pointer;
+}
+
+.tabla-reporte td {
+  background: #fff;
+  border-color: #e2dccb;
+}
+
+.tabla-reporte tr:hover td {
+  background: #f6efdc;
 }

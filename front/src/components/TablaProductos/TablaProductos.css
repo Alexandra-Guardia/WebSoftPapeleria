@@ -2,6 +2,7 @@
   border-collapse: collapse;
   margin: 25px auto 0;
   width: 90%;
+  box-shadow: var(--sombra);
 }
 
 .tabla-productos th,
@@ -16,6 +17,18 @@
 .tabla-productos th {
   padding: 15px;
   font-weight: bold;
+  /*para que la fila de los titulos sea azul y las letras blancas */
+  background: var(--verde);
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-size: 12px;
+}
+
+/*esto es para que las celdas de la stablas ppasen a blanco*/
+.tabla-productos td {
+  background: #fff;
+  border-color: #e2dccb;
+  border-width: 1px;
 }
 
 .tabla-productos__acciones {
@@ -34,4 +47,12 @@
   font-size: 11px;
   font-weight: bold;
   color: #a63d22;
+}
+
+/*esto lo agregue para que cambie el color de las filas al pasar el mouse*/
+.tabla-productos tr:hover td {
+  background: #f6efdc;
+}
+.tabla-productos tr.tabla-productos__fila--bajo:hover td {
+  background: #f3c4b3;
 }
