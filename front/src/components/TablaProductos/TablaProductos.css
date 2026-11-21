@@ -23,3 +23,15 @@
   justify-content: center;
   gap: 8px;
 }
+
+.tabla-productos__fila--bajo td {
+  background: #f8d8cc;
+}
+
+.tabla-productos__alerta {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #a63d22;
+}

@@ -16,11 +16,16 @@ export default function TablaProductos({ productos, onEditar, onEliminar }) {
       </thead>
       <tbody>
         {productos.map((producto) => (
-          <tr key={producto.id}>
+            <tr
+            key={producto.id}
+            className={producto.stockBajo ? "tabla-productos__fila--bajo" : ""}>
             <td>{producto.id}</td>
             <td>{producto.nombre}</td>
             <td>{producto.descripcion}</td>
-            <td>{producto.cantidad}</td>
+            <td>{producto.cantidad}
+              {producto.stockBajo && (
+                <span className="tabla-productos__alerta">Stock bajo</span>)}
+            </td>
             <td>{producto.precio}</td>
             <td>
               <div className="tabla-productos__acciones">
@@ -30,7 +35,7 @@ export default function TablaProductos({ productos, onEditar, onEliminar }) {
                   onClick={() => onEditar(producto.id)}
                 />
                 <BotonAccion
-                  texto="Eliminar"
+                  texto="Desactivar"
                   variante="naranja"
                   onClick={() => onEliminar(producto.id)}
                 />
