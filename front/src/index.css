@@ -9,6 +9,12 @@
   --naranja: #ee9a82;
   --verde-btn: #9bcdb0;
   --borde: #1e3a5f;
+  --borde-suave: #e2dccb;
+  --fila-hover: #f6efdc;
+  --peligro: #a63d22;
+  --peligro-fondo: #fbe3dc;
+  --alerta-fondo: #f8d8cc;
+  --alerta-hover: #f3c4b3;
 
   --fondo: #f6f4ef;
   --radio: 10px;
@@ -24,4 +30,52 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #111;
   background: var(--fondo);
+}
+
+/* Estilos comunes de las tablas */
+.tabla {
+  border-collapse: collapse;
+  box-shadow: var(--sombra);
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid var(--borde);
+  text-align: center;
+  font-size: 13px;
+}
+
+.tabla th {
+  font-weight: bold;
+  background: var(--verde);
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-size: 12px;
+}
+
+.tabla td {
+  background: #fff;
+  border-color: var(--borde-suave);
+}
+
+.tabla tr:hover td {
+  background: var(--fila-hover);
+}
+
+/* Botón de eliminar dentro de una tabla */
+.tabla__eliminar {
+  background: none;
+  border: none;
+  color: var(--borde);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tabla__eliminar:hover {
+  background: var(--peligro-fondo);
+  color: var(--peligro);
 }

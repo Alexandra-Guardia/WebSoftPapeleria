@@ -1,37 +1,15 @@
 .tabla-usuarios {
-  border-collapse: collapse;
   margin: 25px auto 0;
   width: 90%;
-  box-shadow: var(--sombra);
 }
 
 .tabla-usuarios th,
 .tabla-usuarios td {
-  border: 1px solid var(--borde);
-  background: var(--gris);
-  text-align: center;
   padding: 16px 12px;
-  font-size: 13px;
-}
-
-.tabla-usuarios th {
-  font-weight: bold;
-  background: var(--verde);
-  color: #fff;
-  letter-spacing: 0.8px;
-  font-size: 12px;
 }
 
 .tabla-usuarios__acciones {
   display: flex;
   justify-content: center;
   gap: 8px;
-}
-
-.tabla-usuarios td {
-  background: #fff;
-  border-color: #e2dccb;
-}
-.tabla-usuarios tr:hover td {
-  background: #f6efdc;
 }

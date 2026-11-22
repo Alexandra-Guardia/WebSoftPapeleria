@@ -1,34 +1,15 @@
 .tabla-productos {
-  border-collapse: collapse;
   margin: 25px auto 0;
   width: 90%;
-  box-shadow: var(--sombra);
-}
-
-.tabla-productos th,
-.tabla-productos td {
-  border: 2px solid var(--borde);
-  background: var(--gris);
-  text-align: center;
-  padding: 20px 15px;
-  font-size: 13px;
 }
 
 .tabla-productos th {
+  border-width: 2px;
   padding: 15px;
-  font-weight: bold;
-  /*para que la fila de los titulos sea azul y las letras blancas */
-  background: var(--verde);
-  color: #fff;
-  letter-spacing: 0.8px;
-  font-size: 12px;
 }
 
-/*esto es para que las celdas de la stablas ppasen a blanco*/
 .tabla-productos td {
-  background: #fff;
-  border-color: #e2dccb;
-  border-width: 1px;
+  padding: 20px 15px;
 }
 
 .tabla-productos__acciones {
@@ -38,7 +19,7 @@
 }
 
 .tabla-productos__fila--bajo td {
-  background: #f8d8cc;
+  background: var(--alerta-fondo);
 }
 
 .tabla-productos__alerta {
@@ -46,13 +27,9 @@
   margin-top: 4px;
   font-size: 11px;
   font-weight: bold;
-  color: #a63d22;
+  color: var(--peligro);
 }
 
-/*esto lo agregue para que cambie el color de las filas al pasar el mouse*/
-.tabla-productos tr:hover td {
-  background: #f6efdc;
-}
 .tabla-productos tr.tabla-productos__fila--bajo:hover td {
-  background: #f3c4b3;
+  background: var(--alerta-hover);
 }

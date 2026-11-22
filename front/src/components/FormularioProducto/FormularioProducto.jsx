@@ -27,19 +27,23 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
       setError("El nombre es obligatorio.");
       return;
     }
-    if (datos.cantidad === "" || Number(datos.cantidad) < 0) {
-      setError("La cantidad debe ser 0 o mayor.");
+
+    const cantidad = Number(datos.cantidad);
+    if (datos.cantidad === "" || !Number.isInteger(cantidad) || cantidad < 0) {
+      setError("La cantidad debe ser un número entero de 0 o mayor.");
       return;
     }
+
     if (datos.precio === "" || Number(datos.precio) <= 0) {
       setError("El precio debe ser mayor a 0.");
       return;
     }
+
     onGuardar({
       nombre: datos.nombre.trim(),
       descripcion: datos.descripcion.trim(),
-      cantidad: Number(datos.cantidad),
-      precio: String(datos.precio),
+      cantidad,
+      precio: Number(datos.precio),
     });
   };
 
@@ -59,6 +63,7 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
           name="cantidad"
           type="number"
           min="0"
+          step="1"
           value={datos.cantidad}
           onChange={cambiar}
         />

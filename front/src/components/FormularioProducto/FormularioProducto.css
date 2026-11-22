@@ -24,7 +24,7 @@
   margin: 0;
   font-size: 12px;
   font-weight: bold;
-  color: #a63d22;
+  color: var(--peligro);
 }
 
 .formulario-producto__botones {

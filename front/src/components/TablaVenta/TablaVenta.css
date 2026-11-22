@@ -1,49 +1,9 @@
 .tabla-venta {
-  border-collapse: collapse;
   width: 88%;
   margin: 10px auto 0;
-  box-shadow: var(--sombra);
 }
 
 .tabla-venta th,
 .tabla-venta td {
-  border: 1px solid var(--borde);
-  background: var(--gris);
-  text-align: center;
   padding: 16px 10px;
-  font-size: 13px;
-}
-
-.tabla-venta th {
-  font-weight: bold;
-  background: var(--verde);
-  color: #fff;
-  letter-spacing: 0.8px;
-  font-size: 12px;
-}
-
-.tabla-venta__eliminar {
-  background: none;
-  border: none;
-  color: var(--borde);
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  transition: background 0.15s, color 0.15s;
-}
-
-.tabla-venta td {
-  background: #fff;
-  border-color: #e2dccb;
-}
-
-.tabla-venta tr:hover td {
-  background: #f6efdc;
-}
-
-.tabla-venta__eliminar:hover {
-  background: #fbe3dc;
-  color: #a63d22;
 }

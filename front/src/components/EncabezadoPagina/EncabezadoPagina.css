@@ -7,6 +7,6 @@
   font-size: 36px;
 
   border-radius: var(--radio);
-  border-left: 6px solid var(--turquesa); /* aqui le coloque una franja a la izquierda del titulo*/
-  box-shadow: var(--sombra);  /* este es para la sombra del borde*/
+  border-left: 6px solid var(--turquesa); /* Franja a la izquierda del título */
+  box-shadow: var(--sombra);  /* Sombra del encabezado */
 }

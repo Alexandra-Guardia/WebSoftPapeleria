@@ -3,7 +3,7 @@ import "./TablaVenta.css";
 
 export default function TablaVenta({ productos, onEliminar }) {
   return (
-    <table className="tabla-venta">
+    <table className="tabla tabla-venta">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,7 +24,7 @@ export default function TablaVenta({ productos, onEliminar }) {
             <td>{Number((producto.cantidad * producto.precio).toFixed(2))}</td>
             <td>
               <button
-                className="tabla-venta__eliminar"
+                className="tabla__eliminar"
                 onClick={() => onEliminar(producto.id)}
               >
                 <FaTrash />
