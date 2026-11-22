@@ -12,13 +12,10 @@ export default function App() {
       <MenuLateral usuario="User" nombreNegocio="PAPELERÍA JAYA" />
       <main className="app__contenido">
         <Routes>
-          <Route path="/" element={<Navigate to="/usuarios" />} />
-          <Route path="/usuarios" element={<GestionUsuarios />} />
-          <Route path="/" element={<Navigate to="/reportes" />} />
-          <Route path="/reportes" element={<ReporteVentas />} />
-          <Route path="/" element={<Navigate to="/ventas" />} />
-          <Route path="/ventas" element={<RegistroVentas />} />
           <Route path="/" element={<Navigate to="/productos" />} />
+          <Route path="/usuarios" element={<GestionUsuarios />} />
+          <Route path="/reportes" element={<ReporteVentas />} />
+          <Route path="/ventas" element={<RegistroVentas />} />
           <Route path="/productos" element={<GestionProductos />} />
         </Routes>
       </main>

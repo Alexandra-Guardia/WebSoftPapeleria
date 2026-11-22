@@ -1,25 +1,35 @@
 .tabla-productos {
-  border-collapse: collapse;
   margin: 25px auto 0;
   width: 90%;
 }
 
-.tabla-productos th,
-.tabla-productos td {
-  border: 2px solid var(--borde);
-  background: var(--gris);
-  text-align: center;
-  padding: 20px 15px;
-  font-size: 13px;
+.tabla-productos th {
+  border-width: 2px;
+  padding: 15px;
 }
 
-.tabla-productos th {
-  padding: 15px;
-  font-weight: bold;
+.tabla-productos td {
+  padding: 20px 15px;
 }
 
 .tabla-productos__acciones {
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+
+.tabla-productos__fila--bajo td {
+  background: var(--alerta-fondo);
+}
+
+.tabla-productos__alerta {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--peligro);
+}
+
+.tabla-productos tr.tabla-productos__fila--bajo:hover td {
+  background: var(--alerta-hover);
 }

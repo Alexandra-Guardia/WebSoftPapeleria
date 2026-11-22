@@ -1,0 +1,35 @@
+.formulario-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formulario-producto label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.formulario-producto input {
+  border: 2px solid var(--borde);
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: var(--gris);
+}
+
+.formulario-producto__error {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--peligro);
+}
+
+.formulario-producto__botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}

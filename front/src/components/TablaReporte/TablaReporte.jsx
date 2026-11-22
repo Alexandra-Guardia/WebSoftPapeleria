@@ -3,7 +3,7 @@ import "./TablaReporte.css";
 
 export default function TablaReporte({ ventas, onEliminar = () => {} }) {
   return (
-    <table className="tabla-reporte">
+    <table className="tabla tabla-reporte">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,7 +24,7 @@ export default function TablaReporte({ ventas, onEliminar = () => {} }) {
             <td>{venta.fecha}</td>
             <td>
               <button
-                className="tabla-reporte__eliminar"
+                className="tabla__eliminar"
                 onClick={() => onEliminar(venta.id)}
               >
                 <FaTrash />

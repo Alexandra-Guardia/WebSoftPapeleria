@@ -7,7 +7,7 @@ export default function TablaUsuarios({
   onEliminar = () => {},
 }) {
   return (
-    <table className="tabla-usuarios">
+    <table className="tabla tabla-usuarios">
       <thead>
         <tr>
           <th>ID</th>
