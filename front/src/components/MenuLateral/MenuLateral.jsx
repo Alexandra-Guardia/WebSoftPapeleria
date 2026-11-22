@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import {FaDesktop,FaBoxOpen, FaShoppingCart,FaBook,FaUsers, FaUser,} from "react-icons/fa";
+import { FaBoxOpen, FaShoppingCart, FaBook, FaUsers, FaUser } from "react-icons/fa";
 import "./MenuLateral.css";
 
 const opciones = [

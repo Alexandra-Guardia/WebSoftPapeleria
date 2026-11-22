@@ -18,10 +18,7 @@ export default function ReporteVentas() {
       <BarraFiltros />
       <TablaReporte ventas={ventasEjemplo} />
       <TotalVenta etiqueta="TOTAL" monto={totalReporte} destacado />
-      <DatoResumen etiqueta="Total de ventas" valor={`$ ${totalReporte}`} />
       <DatoResumen etiqueta="Cantidad de ventas" valor={ventasEjemplo.length} />
     </>
   );
 }
-
-//eeste es para sacar el total de ventas y la cantidad de ventas, se encuentra en la ventana reportes
