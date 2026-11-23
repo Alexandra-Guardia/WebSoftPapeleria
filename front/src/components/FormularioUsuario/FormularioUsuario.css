@@ -1,0 +1,52 @@
+.formulario-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formulario-usuario label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.formulario-usuario input:not([type="checkbox"]),
+.formulario-usuario select {
+  border: 2px solid var(--borde);
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: var(--gris);
+}
+
+.formulario-usuario__permisos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 2px solid var(--borde);
+  border-radius: 4px;
+}
+
+.formulario-usuario__permisos legend {
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.formulario-usuario .formulario-usuario__permiso {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+}
+
+.formulario-usuario__botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}

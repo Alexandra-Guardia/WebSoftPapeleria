@@ -5,6 +5,8 @@ import TablaVenta from "../../components/TablaVenta";
 import TotalVenta from "../../components/TotalVenta";
 import MetodoPago from "../../components/MetodoPago";
 import BotonAccion from "../../components/BotonAccion";
+import CampoImporte from "../../components/CampoImporte";
+import Aviso from "../../components/Aviso";
 import "./RegistroVentas.css";
 
 const catalogo = [
@@ -17,12 +19,16 @@ export default function RegistroVentas() {
   const [busqueda, setBusqueda] = useState("");
   const [productosVenta, setProductosVenta] = useState([]);
   const [metodoPago, setMetodoPago] = useState("");
+  const [importeRecibido, setImporteRecibido] = useState("");
+  const [aviso, setAviso] = useState({ mensaje: "", tipo: "error" });
 
   const total = Number(
     productosVenta
       .reduce((suma, p) => suma + p.cantidad * p.precio, 0)
       .toFixed(2)
   );
+
+  const cambio = Math.max(0, Number((Number(importeRecibido || 0) - total).toFixed(2)));
 
   const agregarProducto = () => {
     const texto = busqueda.trim().toLowerCase();
@@ -31,7 +37,7 @@ export default function RegistroVentas() {
     );
 
     if (!texto || !encontrado) {
-      alert("Producto no encontrado");
+      setAviso({ mensaje: "Producto no encontrado", tipo: "error" });
       return;
     }
 
@@ -56,24 +62,42 @@ export default function RegistroVentas() {
     setProductosVenta([]);
     setMetodoPago("");
     setBusqueda("");
+    setImporteRecibido("");
   };
 
   const registrarVenta = () => {
     if (productosVenta.length === 0) {
-      alert("Agrega al menos un producto");
+      setAviso({ mensaje: "Agrega al menos un producto", tipo: "error" });
       return;
     }
     if (!metodoPago) {
-      alert("Elige un método de pago");
+      setAviso({ mensaje: "Elige un método de pago", tipo: "error" });
       return;
     }
-    alert("Venta registrada por $ " + total);
+
+    if (importeRecibido === "" || Number(importeRecibido) < total) {
+      setAviso({ 
+        mensaje: "El importe recibido debe ser igual o mayor al total",
+        tipo: "error",
+      });
+      return;
+    }
+
     cancelarVenta();
+    setAviso({
+      mensaje: "Venta registrada por $ " + total + ". Cambio: $ " + cambio,
+      tipo: "exito",
+    });
   };
 
   return (
     <>
       <EncabezadoPagina titulo="Ventas" />
+      <Aviso
+        mensaje={aviso.mensaje}
+        tipo={aviso.tipo}
+        onCerrar={() => setAviso({ mensaje: "", tipo: "error" })}
+      />
       <BarraBusqueda
         valor={busqueda}
         onCambiar={setBusqueda}
@@ -88,7 +112,12 @@ export default function RegistroVentas() {
         seleccionado={metodoPago}
         onCambiar={setMetodoPago}
       />
-      <TotalVenta etiqueta="Subtotal" monto={total} />
+      <CampoImporte
+        etiqueta="Importe recibido"
+        valor={importeRecibido}
+        onCambio={setImporteRecibido}
+      />
+      <TotalVenta etiqueta="Cambio" monto={cambio} />
       <div className="ventas__acciones">
         <BotonAccion texto="Registrar venta" variante="verde" onClick={registrarVenta} />
         <BotonAccion texto="Cancelar venta" variante="naranja" onClick={cancelarVenta} />

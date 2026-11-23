@@ -1,7 +1,6 @@
-import { FaTrash } from "react-icons/fa";
 import "./TablaReporte.css";
 
-export default function TablaReporte({ ventas, onEliminar = () => {} }) {
+export default function TablaReporte({ ventas }) {
   return (
     <table className="tabla tabla-reporte">
       <thead>
@@ -11,7 +10,6 @@ export default function TablaReporte({ ventas, onEliminar = () => {} }) {
           <th>CANTIDAD</th>
           <th>TOTAL</th>
           <th>FECHA</th>
-          <th>ELIMINAR</th>
         </tr>
       </thead>
       <tbody>
@@ -22,14 +20,6 @@ export default function TablaReporte({ ventas, onEliminar = () => {} }) {
             <td>{venta.cantidad}</td>
             <td>$ {venta.total}</td>
             <td>{venta.fecha}</td>
-            <td>
-              <button
-                className="tabla__eliminar"
-                onClick={() => onEliminar(venta.id)}
-              >
-                <FaTrash />
-              </button>
-            </td>
           </tr>
         ))}
       </tbody>

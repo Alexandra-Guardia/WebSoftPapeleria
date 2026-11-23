@@ -2,12 +2,13 @@ import { useState } from "react";
 import BotonAccion from "../BotonAccion";
 import "./FormularioProducto.css";
 
-const vacio = { nombre: "", descripcion: "", cantidad: "", precio: "" };
+const vacio = { codigo: "", nombre: "", descripcion: "", cantidad: "", precio: "" };
 
 export default function FormularioProducto({ producto, onGuardar, onCancelar }) {
   const [datos, setDatos] = useState(
     producto
       ? {
+          codigo: producto.codigo,
           nombre: producto.nombre,
           descripcion: producto.descripcion,
           cantidad: String(producto.cantidad),
@@ -23,6 +24,10 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
 
   const enviar = (e) => {
     e.preventDefault();
+    if (!datos.codigo.trim()) {
+      setError("El código es obligatorio.");
+      return;
+    }
     if (!datos.nombre.trim()) {
       setError("El nombre es obligatorio.");
       return;
@@ -40,6 +45,7 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
     }
 
     onGuardar({
+      codigo: datos.codigo.trim(),
       nombre: datos.nombre.trim(),
       descripcion: datos.descripcion.trim(),
       cantidad,
@@ -49,6 +55,10 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
 
   return (
     <form className="formulario-producto" onSubmit={enviar}>
+      <label>
+        Código
+        <input name="codigo" value={datos.codigo} onChange={cambiar} />
+      </label>
       <label>
         Nombre
         <input name="nombre" value={datos.nombre} onChange={cambiar} />
