@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import { FaBoxOpen, FaShoppingCart, FaBook, FaUsers, FaUser } from "react-icons/fa";
+import { FaBoxOpen, FaShoppingCart, FaFileInvoiceDollar, FaBook, FaUsers, FaUser } from "react-icons/fa";
 import "./MenuLateral.css";
 
 const opciones = [
@@ -8,6 +8,7 @@ const opciones = [
   { texto: "VENTAS", ruta: "/ventas", icono: FaShoppingCart },
   { texto: "REPORTES", ruta: "/reportes", icono: FaBook },
   { texto: "USUARIOS", ruta: "/usuarios", icono: FaUsers },
+  { texto: "ENTRADAS Y GASTOS", ruta: "/entradas-gastos", icono: FaFileInvoiceDollar },
 ];
 
 export default function MenuLateral({ usuario }) {

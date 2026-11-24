@@ -1,0 +1,15 @@
+.tabla-entradas-gastos {
+  margin: 25px auto 0;
+  width: 90%;
+}
+
+.tabla-entradas-gastos th,
+.tabla-entradas-gastos td {
+  padding: 16px 12px;
+}
+
+.tabla-entradas-gastos__acciones {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}

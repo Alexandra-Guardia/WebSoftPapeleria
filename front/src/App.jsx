@@ -4,6 +4,7 @@ import GestionUsuarios from "./views/GestionUsuarios/GestionUsuarios";
 import ReporteVentas from "./views/ReporteVentas/ReporteVentas";
 import RegistroVentas from "./views/RegistroVentas/RegistroVentas";
 import GestionProductos from "./views/GestionProductos/GestionProductos";
+import EntradaGastos from "./views/EntradaGastos/EntradaGastos";
 import "./App.css";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/usuarios" element={<GestionUsuarios />} />
           <Route path="/reportes" element={<ReporteVentas />} />
           <Route path="/ventas" element={<RegistroVentas />} />
+          <Route path="/entradas-gastos" element={<EntradaGastos />} />
           <Route path="/productos" element={<GestionProductos />} />
         </Routes>
       </main>

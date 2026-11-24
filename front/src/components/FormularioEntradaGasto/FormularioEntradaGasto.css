@@ -1,0 +1,45 @@
+.formulario-entrada-gasto {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formulario-entrada-gasto__datos {
+  display: flex;
+  gap: 14px;
+}
+
+.formulario-entrada-gasto__campo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.formulario-entrada-gasto__campo input {
+  border: 2px solid var(--borde);
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: var(--gris);
+}
+
+.formulario-entrada-gasto__tipo {
+  display: flex;
+  gap: 8px;
+}
+
+.formulario-entrada-gasto__botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.modal:has(.formulario-entrada-gasto) {
+  width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
