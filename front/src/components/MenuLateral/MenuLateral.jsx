@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { FaBoxOpen, FaShoppingCart, FaFileInvoiceDollar, FaBook, FaUsers, FaUser } from "react-icons/fa";
+import { FaBoxOpen, FaShoppingCart, FaFileInvoiceDollar, FaBook, FaUsers, FaUser, FaSignOutAlt } from "react-icons/fa";
 import "./MenuLateral.css";
 
 const opciones = [
@@ -12,6 +13,7 @@ const opciones = [
 ];
 
 export default function MenuLateral({ usuario }) {
+  const [menuUsuarioAbierto, setMenuUsuarioAbierto] = useState(false);
   return (
     <aside className="menu-lateral">
      <h2 className="menu-lateral__titulo">PAPELERÍA JAYA</h2>
@@ -32,10 +34,20 @@ export default function MenuLateral({ usuario }) {
         );
       })}
 
-      <button className="menu-lateral__cerrar">CERRAR SESIÓN</button>
-
-      <div className="menu-lateral__usuario">
-        <FaUser /> {usuario}
+      <div className="menu-lateral__usuario-contenedor">
+        {menuUsuarioAbierto && (
+          <button type="button" className="menu-lateral__cerrar">
+            <FaSignOutAlt /> CERRAR SESIÓN
+          </button>
+        )}
+        <button
+          type="button"
+          className="menu-lateral__usuario"
+          aria-expanded={menuUsuarioAbierto}
+          onClick={() => setMenuUsuarioAbierto(!menuUsuarioAbierto)}
+        >
+          <FaUser /> {usuario}
+        </button>
       </div>
     </aside>
   );

@@ -35,25 +35,42 @@
 }
 
 .menu-lateral__cerrar {
-  background: var(--gris);
+  background: var(--naranja);
+  color: var(--borde);
   border: none;
-  padding: 10px;
-  font-size: 11px;
+  border-radius: 8px;
+  padding: 14px 10px;
+  font-size: 13px;
   font-weight: bold;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-lateral__usuario-contenedor {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .menu-lateral__usuario {
   background: var(--verde-claro);
+  border: none;
   border-radius: 8px;
   padding: 20px 10px;
-  margin-top: auto;
+  width: 100%;
+  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
   color: #fff;
   justify-content: center;
+  cursor: pointer;
 }
 
 .menu-lateral__titulo {
@@ -74,4 +91,8 @@
 
 .menu-lateral__cerrar:hover { /*para oscurecer el boton de cerrar sesión*/
   filter: brightness(0.92);
+}
+
+.menu-lateral__usuario:hover {
+  filter: brightness(1.15);
 }
