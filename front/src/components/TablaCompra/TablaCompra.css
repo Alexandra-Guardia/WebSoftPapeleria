@@ -1,0 +1,9 @@
+.tabla-compra {
+  width: 100%;
+  margin: 10px auto 0;
+}
+
+.tabla-compra th,
+.tabla-compra td {
+  padding: 12px 10px;
+}
