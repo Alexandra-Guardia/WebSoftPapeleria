@@ -2,7 +2,7 @@ import { useState } from "react";
 import BotonAccion from "../BotonAccion";
 import "./FormularioProducto.css";
 
-const vacio = { codigo: "", nombre: "", descripcion: "", cantidad: "", precio: "" };
+const vacio = { codigo: "", nombre: "", cantidad: "", cantidadMinima: "", precio: "" };
 
 export default function FormularioProducto({ producto, onGuardar, onCancelar }) {
   const [datos, setDatos] = useState(
@@ -10,8 +10,8 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
       ? {
           codigo: producto.codigo,
           nombre: producto.nombre,
-          descripcion: producto.descripcion,
           cantidad: String(producto.cantidad),
+          cantidadMinima: String(producto.cantidadMinima),
           precio: String(producto.precio),
         }
       : vacio
@@ -39,6 +39,16 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
       return;
     }
 
+    const cantidadMinima = Number(datos.cantidadMinima);
+    if (
+      datos.cantidadMinima === "" ||
+      !Number.isInteger(cantidadMinima) ||
+      cantidadMinima < 0
+    ) {
+      setError("La cantidad mínima debe ser un número entero de 0 o mayor.");
+      return;
+    }
+
     if (datos.precio === "" || Number(datos.precio) <= 0) {
       setError("El precio debe ser mayor a 0.");
       return;
@@ -47,8 +57,8 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
     onGuardar({
       codigo: datos.codigo.trim(),
       nombre: datos.nombre.trim(),
-      descripcion: datos.descripcion.trim(),
       cantidad,
+      cantidadMinima,
       precio: Number(datos.precio),
     });
   };
@@ -57,15 +67,11 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
     <form className="formulario-producto" onSubmit={enviar}>
       <label>
         Código
-        <input name="codigo" value={datos.codigo} onChange={cambiar} />
+        <input name="codigo" value={datos.codigo} onChange={cambiar} disabled={Boolean(producto)} />
       </label>
       <label>
         Nombre
-        <input name="nombre" value={datos.nombre} onChange={cambiar} />
-      </label>
-      <label>
-        Descripción
-        <input name="descripcion" value={datos.descripcion} onChange={cambiar} />
+        <input name="nombre" value={datos.nombre} onChange={cambiar} disabled={Boolean(producto)}/>
       </label>
       <label>
         Cantidad
@@ -75,6 +81,17 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
           min="0"
           step="1"
           value={datos.cantidad}
+          onChange={cambiar}
+        />
+      </label>
+      <label>
+        Cantidad mínima
+        <input
+          name="cantidadMinima"
+          type="number"
+          min="0"
+          step="1"
+          value={datos.cantidadMinima}
           onChange={cambiar}
         />
       </label>
