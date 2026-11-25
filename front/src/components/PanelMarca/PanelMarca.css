@@ -1,0 +1,72 @@
+.panel-marca {
+  position: relative;
+  overflow: hidden;
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 40px;
+  background: var(--verde);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.2));
+  border-radius: 0 16% 16% 0 / 0 50% 50% 0;
+  color: #fff;
+}
+
+.panel-marca::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 90px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--turquesa);
+}
+
+.panel-marca::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -100px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: var(--azul);
+  opacity: 0.5;
+}
+
+.panel-marca__logo {
+  position: relative;
+  z-index: 1;
+  background: var(--fondo);
+  border-radius: var(--radio);
+  padding: 20px 28px;
+  box-shadow: var(--sombra);
+}
+
+.panel-marca__logo img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.panel-marca__titulo {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.panel-marca__modulos {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--borde-suave);
+}

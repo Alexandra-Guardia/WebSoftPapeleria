@@ -1,0 +1,27 @@
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario-login__recordar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.formulario-login__error {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--peligro);
+}
+
+.formulario-login .formulario-login__boton {
+  width: 100%;
+  padding: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: var(--radio);
+}
