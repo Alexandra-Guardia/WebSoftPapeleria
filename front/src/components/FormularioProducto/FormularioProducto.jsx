@@ -2,7 +2,13 @@ import { useState } from "react";
 import BotonAccion from "../BotonAccion";
 import "./FormularioProducto.css";
 
-const vacio = { codigo: "", nombre: "", descripcion: "", cantidad: "", precio: "" };
+const CODIGO_VALIDO = /^[A-Z]{3}\d{2}-\d{5}$/;
+const ENTERO_VALIDO = /^\d+$/;
+const PRECIO_VALIDO = /^\d+(\.\d{1,2})?$/;
+const MAX_CANTIDAD = 999999;
+const MAX_PRECIO = 99999999.99;
+
+const vacio = { codigo: "", nombre: "", cantidad: "", cantidadMinima: "", precio: "" };
 
 export default function FormularioProducto({ producto, onGuardar, onCancelar }) {
   const [datos, setDatos] = useState(
@@ -10,8 +16,8 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
       ? {
           codigo: producto.codigo,
           nombre: producto.nombre,
-          descripcion: producto.descripcion,
           cantidad: String(producto.cantidad),
+          cantidadMinima: String(producto.cantidadMinima),
           precio: String(producto.precio),
         }
       : vacio
@@ -24,48 +30,61 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
 
   const enviar = (e) => {
     e.preventDefault();
-    if (!datos.codigo.trim()) {
+    const codigo = datos.codigo.trim().toUpperCase();
+    const nombre = datos.nombre.trim();
+
+    if (!codigo) {
       setError("El código es obligatorio.");
       return;
     }
-    if (!datos.nombre.trim()) {
+
+    if (!CODIGO_VALIDO.test(codigo)) {
+      setError("El código debe tener el formato AAA00-00000 (3 letras, 2 números, guion y 5 números).");
+      return;
+    }
+
+    if (!nombre) {
       setError("El nombre es obligatorio.");
       return;
     }
 
     const cantidad = Number(datos.cantidad);
-    if (datos.cantidad === "" || !Number.isInteger(cantidad) || cantidad < 0) {
-      setError("La cantidad debe ser un número entero de 0 o mayor.");
+    if (!ENTERO_VALIDO.test(datos.cantidad) || cantidad > MAX_CANTIDAD) {
+      setError("La cantidad debe ser un número entero entre 0 y 999999.");
       return;
     }
 
-    if (datos.precio === "" || Number(datos.precio) <= 0) {
-      setError("El precio debe ser mayor a 0.");
+    const cantidadMinima = Number(datos.cantidadMinima);
+    if (
+      !ENTERO_VALIDO.test(datos.cantidadMinima) ||
+      cantidadMinima > MAX_CANTIDAD
+    ) {
+      setError("La cantidad mínima debe ser un número entero entre 0 y 999999.");
       return;
     }
 
-    onGuardar({
-      codigo: datos.codigo.trim(),
-      nombre: datos.nombre.trim(),
-      descripcion: datos.descripcion.trim(),
-      cantidad,
-      precio: Number(datos.precio),
-    });
+    const precio = Number(datos.precio);
+    if (!PRECIO_VALIDO.test(datos.precio) || precio <= 0) {
+      setError("El precio debe ser mayor a 0 y tener máximo 2 decimales.");
+      return;
+    }
+    if (precio > MAX_PRECIO) {
+      setError("El precio no puede ser mayor a 99999999.99.");
+      return;
+    }
+
+    onGuardar({ codigo, nombre, cantidad, cantidadMinima, precio });
   };
 
   return (
     <form className="formulario-producto" onSubmit={enviar}>
       <label>
         Código
-        <input name="codigo" value={datos.codigo} onChange={cambiar} />
+        <input name="codigo" value={datos.codigo} onChange={cambiar} maxLength={11} placeholder="Ej. CUA24-00030" disabled={Boolean(producto)} />
       </label>
       <label>
         Nombre
-        <input name="nombre" value={datos.nombre} onChange={cambiar} />
-      </label>
-      <label>
-        Descripción
-        <input name="descripcion" value={datos.descripcion} onChange={cambiar} />
+        <input name="nombre" value={datos.nombre} onChange={cambiar} maxLength={100} disabled={Boolean(producto)}/>
       </label>
       <label>
         Cantidad
@@ -75,6 +94,17 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
           min="0"
           step="1"
           value={datos.cantidad}
+          onChange={cambiar}
+        />
+      </label>
+      <label>
+        Cantidad mínima
+        <input
+          name="cantidadMinima"
+          type="number"
+          min="0"
+          step="1"
+          value={datos.cantidadMinima}
           onChange={cambiar}
         />
       </label>
