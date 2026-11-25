@@ -1,0 +1,67 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-image: linear-gradient(180deg, var(--azul), var(--verde));
+}
+
+.login__tarjeta {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 560px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.login__formulario {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 40px 60px;
+}
+
+.login__titulo {
+  margin: 0;
+  font-size: 36px;
+  color: var(--titulo);
+}
+
+.login__subtitulo {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.login__ayuda {
+  margin: 10px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--borde-suave);
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+.login__ayuda strong {
+  color: var(--azul);
+}
+
+@media (max-width: 800px) {
+  .login__tarjeta {
+    flex-direction: column;
+  }
+
+  .login__tarjeta .panel-marca {
+    border-radius: 0;
+  }
+
+  .login__formulario {
+    padding: 30px 24px;
+  }
+}

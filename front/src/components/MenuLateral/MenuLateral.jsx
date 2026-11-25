@@ -12,7 +12,7 @@ const opciones = [
   { texto: "ENTRADAS Y GASTOS", ruta: "/entradas-gastos", icono: FaFileInvoiceDollar },
 ];
 
-export default function MenuLateral({ usuario }) {
+export default function MenuLateral({ usuario, onCerrarSesion = () => {} }) {
   const [menuUsuarioAbierto, setMenuUsuarioAbierto] = useState(false);
   return (
     <aside className="menu-lateral">
@@ -36,7 +36,11 @@ export default function MenuLateral({ usuario }) {
 
       <div className="menu-lateral__usuario-contenedor">
         {menuUsuarioAbierto && (
-          <button type="button" className="menu-lateral__cerrar">
+          <button
+            type="button"
+            className="menu-lateral__cerrar"
+            onClick={onCerrarSesion}
+          >
             <FaSignOutAlt /> CERRAR SESIÓN
           </button>
         )}
