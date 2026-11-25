@@ -7,10 +7,10 @@ import FormularioProducto from "../../components/FormularioProducto";
 
 //info temporal mis amiguitos zentrixeros
 const productosIniciales = [
-  { id: 1, codigo: "CUA-001", nombre: "Cuaderno A5", cantidad: 10, cantidadMinima: 5, precio: 5.0, activo: true },
-  { id: 2, codigo: "LAP-001", nombre: "Lapicero Azul", cantidad: 25, cantidadMinima: 5, precio: 1.5, activo: true },
-  { id: 3, codigo: "MAR-001", nombre: "Marcador Permanente", cantidad: 15, cantidadMinima: 5, precio: 2.75, activo: true },
-  { id: 4, codigo: "REG-001", nombre: "Regla 30 cm", cantidad: 3, cantidadMinima: 5, precio: 3.0, activo: true },
+  { id: 1, codigo: "CUA01-00001", nombre: "Cuaderno A5", cantidad: 10, cantidadMinima: 5, precio: 5.0, activo: true },
+  { id: 2, codigo: "LAP01-00001", nombre: "Lapicero Azul", cantidad: 25, cantidadMinima: 5, precio: 1.5, activo: true },
+  { id: 3, codigo: "MAR01-00001", nombre: "Marcador Permanente", cantidad: 15, cantidadMinima: 5, precio: 2.75, activo: true },
+  { id: 4, codigo: "REG01-00001", nombre: "Regla 30 cm", cantidad: 3, cantidadMinima: 5, precio: 3.0, activo: true },
 ];
 
 export default function GestionProductos() {

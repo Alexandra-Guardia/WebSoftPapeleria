@@ -2,7 +2,7 @@ import { useState } from "react";
 import BotonAccion from "../BotonAccion";
 import "./FormularioProducto.css";
 
-const CODIGO_VALIDO = /^[A-Za-z0-9-]+$/;
+const CODIGO_VALIDO = /^[A-Z]{3}\d{2}-\d{5}$/;
 const ENTERO_VALIDO = /^\d+$/;
 const PRECIO_VALIDO = /^\d+(\.\d{1,2})?$/;
 const MAX_CANTIDAD = 999999;
@@ -30,7 +30,7 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
 
   const enviar = (e) => {
     e.preventDefault();
-    const codigo = datos.codigo.trim();
+    const codigo = datos.codigo.trim().toUpperCase();
     const nombre = datos.nombre.trim();
 
     if (!codigo) {
@@ -39,7 +39,7 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
     }
 
     if (!CODIGO_VALIDO.test(codigo)) {
-      setError("El código solo puede tener letras, números y guiones.");
+      setError("El código debe tener el formato AAA00-00000 (3 letras, 2 números, guion y 5 números).");
       return;
     }
 
@@ -80,7 +80,7 @@ export default function FormularioProducto({ producto, onGuardar, onCancelar }) 
     <form className="formulario-producto" onSubmit={enviar}>
       <label>
         Código
-        <input name="codigo" value={datos.codigo} onChange={cambiar} maxLength={20} disabled={Boolean(producto)} />
+        <input name="codigo" value={datos.codigo} onChange={cambiar} maxLength={11} placeholder="Ej. CUA24-00030" disabled={Boolean(producto)} />
       </label>
       <label>
         Nombre
