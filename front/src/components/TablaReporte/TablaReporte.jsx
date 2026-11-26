@@ -5,10 +5,9 @@ export default function TablaReporte({ ventas }) {
     <table className="tabla tabla-reporte">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>PRODUCTO</th>
-          <th>CANTIDAD</th>
-          <th>TOTAL</th>
+          <th>ID VENTA</th>
+          <th>PRODUCTOS VENDIDOS</th>
+          <th>TOTAL VENDIDO</th>
           <th>FECHA</th>
         </tr>
       </thead>
@@ -16,8 +15,7 @@ export default function TablaReporte({ ventas }) {
         {ventas.map((venta) => (
           <tr key={venta.id}>
             <td>{venta.id}</td>
-            <td>{venta.producto}</td>
-            <td>{venta.cantidad}</td>
+            <td>{venta.productos}</td>
             <td>$ {venta.total}</td>
             <td>{venta.fecha}</td>
           </tr>

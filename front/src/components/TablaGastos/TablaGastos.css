@@ -1,0 +1,9 @@
+.tabla-gastos {
+  width: 88%;
+  margin: 20px auto 0;
+}
+
+.tabla-gastos th,
+.tabla-gastos td {
+  padding: 12px 10px;
+}
