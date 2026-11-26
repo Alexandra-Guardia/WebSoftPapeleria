@@ -1,0 +1,6 @@
+.reporte__seccion {
+  width: 88%;
+  margin: 28px auto 0;
+  font-size: 18px;
+  color: var(--titulo);
+}

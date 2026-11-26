@@ -1,0 +1,9 @@
+.resumen-periodo {
+  width: 88%;
+  margin: 24px auto 0;
+  border-top: 1px solid var(--borde);
+}
+
+.resumen-periodo .total-venta {
+  width: 100%;
+}
