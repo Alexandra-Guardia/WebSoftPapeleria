@@ -71,7 +71,6 @@ export default function FormularioEntradaGasto({
           <BarraBusqueda
             valor={busqueda}
             onCambiar={setBusqueda}
-            onBuscar={() => {}}
             onAgregar={() => {}}
           />
           <TablaCompra productos={productos} />

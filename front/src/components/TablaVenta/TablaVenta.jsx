@@ -1,12 +1,12 @@
 import { FaTrash } from "react-icons/fa";
 import "./TablaVenta.css";
 
-export default function TablaVenta({ productos, onEliminar }) {
+export default function TablaVenta({ productos, onEliminar, onCambiarCantidad = () => {} }) {
   return (
     <table className="tabla tabla-venta">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>CÓDIGO</th>
           <th>PRODUCTO</th>
           <th>CANTIDAD</th>
           <th>PRECIO $</th>
@@ -17,9 +17,20 @@ export default function TablaVenta({ productos, onEliminar }) {
       <tbody>
         {productos.map((producto) => (
           <tr key={producto.id}>
-            <td>{producto.id}</td>
+            <td>{producto.codigo}</td>
             <td>{producto.nombre}</td>
-            <td>{producto.cantidad}</td>
+            <td>
+              <input
+                className="tabla-venta__cantidad"
+                type="number"
+                min="1"
+                max="999"
+                step="1"
+                value={producto.cantidad}
+                onChange={(e) => onCambiarCantidad(producto.id, e.target.value)}
+                aria-label={"Cantidad de " + producto.nombre}
+              />
+            </td>
             <td>{producto.precio}</td>
             <td>{Number((producto.cantidad * producto.precio).toFixed(2))}</td>
             <td>
