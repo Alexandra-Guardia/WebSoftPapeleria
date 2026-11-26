@@ -12,3 +12,19 @@
   padding: 11px 12px;
   font-size: 13px;
 }
+
+.barra-busqueda__campo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+}
+
+.barra-busqueda__etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--titulo);
+}

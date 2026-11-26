@@ -10,10 +10,14 @@ import Aviso from "../../components/Aviso";
 import "./RegistroVentas.css";
 
 const catalogo = [
-  { id: 1, nombre: "Cuaderno A5", precio: 5.0 },
-  { id: 2, nombre: "Lapicero Azul", precio: 1.5 },
-  { id: 3, nombre: "Marcador Permanente", precio: 2.75 },
+  { id: 1, codigo: "CUA01-00001", nombre: "Cuaderno A5", precio: 5.0 },
+  { id: 2, codigo: "LAP01-00001", nombre: "Lapicero Azul", precio: 1.5 },
+  { id: 3, codigo: "MAR01-00001", nombre: "Marcador Permanente", precio: 2.75 },
 ];
+
+const MAX_CANTIDAD = 999;
+const IMPORTE_VALIDO = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
+const MAX_IMPORTE = 99999999.99;
 
 export default function RegistroVentas() {
   const [busqueda, setBusqueda] = useState("");
@@ -32,17 +36,32 @@ export default function RegistroVentas() {
 
   const agregarProducto = () => {
     const texto = busqueda.trim().toLowerCase();
-    const encontrado = catalogo.find((p) =>
-      p.nombre.toLowerCase().includes(texto)
-    );
+    if (!texto) {
+      setAviso({
+        mensaje: "Escribe el nombre o el código del producto",
+        tipo: "error",
+      });
+      return;
+    }
 
-    if (!texto || !encontrado) {
+    const encontrado = catalogo.find((p) =>
+      p.nombre.toLowerCase().includes(texto) ||
+      p.codigo.toLowerCase().includes(texto)
+    );
+    if (!encontrado) {
       setAviso({ mensaje: "Producto no encontrado", tipo: "error" });
       return;
     }
 
     const yaAgregado = productosVenta.find((p) => p.id === encontrado.id);
     if (yaAgregado) {
+      if (yaAgregado.cantidad >= MAX_CANTIDAD) {
+        setAviso({
+          mensaje: "La cantidad máxima por producto es " + MAX_CANTIDAD,
+          tipo: "error",
+        });
+        return;
+      }
       setProductosVenta(
         productosVenta.map((p) =>
           p.id === encontrado.id ? { ...p, cantidad: p.cantidad + 1 } : p
@@ -56,6 +75,16 @@ export default function RegistroVentas() {
 
   const eliminarProducto = (id) => {
     setProductosVenta(productosVenta.filter((p) => p.id !== id));
+  };
+
+  const cambiarCantidad = (id, valor) => {
+    const cantidad = Number(valor);
+    if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > MAX_CANTIDAD) {
+      return;
+    }
+    setProductosVenta(
+      productosVenta.map((p) => (p.id === id ? { ...p, cantidad } : p))
+    );
   };
 
   const cancelarVenta = () => {
@@ -74,9 +103,22 @@ export default function RegistroVentas() {
       setAviso({ mensaje: "Elige un método de pago", tipo: "error" });
       return;
     }
-
-    if (importeRecibido === "" || Number(importeRecibido) < total) {
-      setAviso({ 
+    if (!IMPORTE_VALIDO.test(importeRecibido)) {
+      setAviso({
+        mensaje: "El importe recibido debe ser un número con máximo 2 decimales",
+        tipo: "error",
+      });
+      return;
+    }
+    if (Number(importeRecibido) > MAX_IMPORTE) {
+      setAviso({
+        mensaje: "El importe recibido no puede ser mayor a 99999999.99",
+        tipo: "error",
+      });
+      return;
+    }
+    if (Number(importeRecibido) < total) {
+      setAviso({
         mensaje: "El importe recibido debe ser igual o mayor al total",
         tipo: "error",
       });
@@ -101,11 +143,14 @@ export default function RegistroVentas() {
       <BarraBusqueda
         valor={busqueda}
         onCambiar={setBusqueda}
-        onBuscar={() => console.log("Buscar:", busqueda)}
         onAgregar={agregarProducto}
       />
       <h2 className="ventas__subtitulo">Productos seleccionados</h2>
-      <TablaVenta productos={productosVenta} onEliminar={eliminarProducto} />
+      <TablaVenta
+        productos={productosVenta}
+        onEliminar={eliminarProducto}
+        onCambiarCantidad={cambiarCantidad}
+      />
       <TotalVenta etiqueta="TOTAL" monto={total} destacado />
       <MetodoPago
         opciones={["Efectivo"]}

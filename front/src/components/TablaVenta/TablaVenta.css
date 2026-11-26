@@ -7,3 +7,13 @@
 .tabla-venta td {
   padding: 16px 10px;
 }
+
+.tabla-venta__cantidad {
+  width: 70px;
+  border: 2px solid var(--borde);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+  text-align: center;
+  background: var(--gris);
+}
